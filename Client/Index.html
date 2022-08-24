@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+        <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/stajl.css">
+        <script type="text/javascript" src="js/skripta.js"></script>
+    </head>
+    <body onload="loadOglasi()">
+        <div id="container" class="container-fluid">
+            <div id="index">
+                <h4>Korisnik nije prijavljen na sistem</h4>
+                <br>
+		        <p><button type="button" class="btnRegister" onclick="showRegistration()" style="display: inline;" >Registracija</button></p>
+                <p><button type="button" id="btnLoginindex" onclick="showLogin()" style="display: inline;" >Prijava</button></p>
+            </div>
+            <div id="loginForm" style="display:none">
+                <h4>Prijava korisnika</h4>
+                <br>
+                <form id="loginForm">
+                    <p>
+                        <label><b>Korisnicko ime:</b> </label>
+                        <input type="text" id="usernameLogin">
+                        <span id="usernameLoginError"></span>
+                    </p>
+                    <p>
+                        <label><b>Lozinka:</b> </label>
+                        <input type="password" id="passwordLogin">
+                        <span id="passwordLoginError"></span>
+                    </p>
+                    
+                    <p><button type="button" id="btnLogin" onclick="loginUser()" style="display: inline;" >Prijavi se</button></p>
+		            <p><button type="button" class="btnQuit" onclick="quitForm()" style="display: inline;" >Odustajanje</button></p>
+                </form>
+            </div>
+            <div id="registerForm" style="display: none;">
+                <h4>Registracija korisnika</h4>
+                <br>
+                <form id="registerForm">
+                    <p>
+                        <label><b>Korisnicko ime:</b> </label>
+                        <input type="text" id="usernameRegister">
+                        <span id="usernameRegError"></span>
+                    </p>
+                    <p>
+                        <label><b>Email:</b> </label>
+                        <input type="email" id="emailRegister">
+                        <span id="emailRegError"></span>
+                    </p>
+                    <p>
+                        <label><b>Lozinka:</b> </label>
+                        <input type="password" id="passwordRegister">
+                        <span id="passwordRegError"></span>
+                    </p>
+                    <p>
+                        <label><b>Ponovi lozinku:</b> </label>
+                        <input type="password" id="confirmPasswordRegister">
+                        <span id="confirmPassRegError"></span>
+                    </p>
+
+                    <p><button type="button" class="btnRegister" onclick="registerUser()" style="display: inline;" >Registruj se</button></p>
+		            <p><button type="button" class="btnQuit" onclick="quitForm()" style="display: inline;" >Odustajanje</button></p>
+                </form>
+            </div>
+            <div id="infoForm" style="display: none;">
+                <form class="row">
+                    
+                    <p id="info" ></p>                   
+                    <p><button class="btnLogout" onclick="logout()" >Odjava</button></p>
+            
+                </form>
+            </div>
+            <br>
+            <div id="pretragaForm" style="display: none;">
+                <p>Pretraga oglasa za nekretnine po ceni:</p>
+                <form method="post" action="post/" id="pretragaForm" onsubmit="return pretragaOglasa()">
+                    <p>
+                        <label><b>Najmanje:</b> </label>
+                        <input type="text" id="pretragaNajmanje">
+                    </p>
+                    <p>
+                        <label><b>Najvise:</b> </label>
+                        <input type="text" id="pretragaNajvise">
+                    </p>
+                    <button id="searchButton">Trazi</button>
+                </form>
+            </div>
+            <br><br>
+            <div id="data"></div>
+            <br>
+            <div id="kreirajForm" style="display: none;">
+                <h1>Dodavanje novog Oglasa</h1>
+                <br>
+                <form>
+                    <p>
+                        <label><b>Agencija:</b> </label>
+                        <select id="oglasAgencija"></select>
+                    </p>
+                    <p>
+                        <label><b>Naslov:</b> </label>
+                        <input type="text" id="oglasNaslov">
+                        <span id="naslovError"></span>
+                    </p>
+                    <p>
+                        <label><b>Tip nekretnine:</b> </label>
+                        <input type="text" id="oglasTip">
+                        <span id="tipError"></span>
+                    </p>
+                    <p>
+                        <label><b>Godina izgradnje:</b> </label>
+                        <input type="text" id="oglasGodina">
+                        <span id="godinaError"></span>
+                    </p>
+                    <p>
+                        <label><b>Cena:</b> </label>
+                        <input type="text" id="oglasCena">
+                        <span id="cenaError"></span>
+                    </p>
+                    <br>
+                    <p><button  type="button" id="addButton" onclick="return createOglas()">Dodavanje</button></p>
+                    <p><button  type="button" id="quitButton" onclick="return clearForm()">Odustajanje</button></p>
+                   
+                </form>
+            </div>
+
+        </div>
+    </body>
+</html>
